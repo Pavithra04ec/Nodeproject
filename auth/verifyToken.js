@@ -6,6 +6,7 @@ module.exports = (req, res, next) => {
         const token = req.headers.authorization.split(" ")[1];
         //jwt.verify will verify the user token when the route is accessed.
         const decoded = jwt.verify(token, config.secret);
+        console.log(decoded);
         req.employeeData = decoded;
         next();
     } catch (err) {
